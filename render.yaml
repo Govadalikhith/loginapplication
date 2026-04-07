@@ -16,7 +16,7 @@ services:
         value: 20.x
 
   # Frontend Static Site
-  - type: static
+  - type: static_site
     name: fullstack-auth-frontend
     env: static
     plan: free
