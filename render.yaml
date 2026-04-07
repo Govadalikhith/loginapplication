@@ -1,0 +1,28 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: fullstack-auth-backend
+    env: node
+    plan: free
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: JWT_SECRET
+        value: secret_key # Replace with a strong secret in Render dashboard
+      - key: NODE_VERSION
+        value: 20.x
+
+  # Frontend Static Site
+  - type: static
+    name: fullstack-auth-frontend
+    env: static
+    plan: free
+    rootDir: Frontend/authentication
+    buildCommand: npm run build
+    publishDir: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://replace-this-with-your-backend-url.onrender.com
